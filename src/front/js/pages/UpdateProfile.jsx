@@ -119,12 +119,12 @@ export const UpdateProfile = () => {
                         <div className="container d-flex justify-content-center">
                         <div className="mb-3 text-start col-6 mx-2">
     			            <label htmlFor="exampleInputEmail1" className="form-label">Nombre</label>
-    			            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+    			            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" maxLength="200"
 				            value={firstName ? firstName : ""} onChange={(e) => setFirstName(e.target.value)} placeholder="Escribe tu nombre"></input>
   			            </div>
                         <div className="mb-3 text-start col-6 mx-2">
     			            <label htmlFor="exampleInputLastName" className="form-label">Apellido</label>
-    			            <input type="text" className="form-control" id="exampleInputLastName" aria-describedby="emailHelp"
+    			            <input type="text" className="form-control" id="exampleInputLastName" aria-describedby="emailHelp" maxLength="20"
 				            value={lastName ? lastName : ""} onChange={(e) => setLastName(e.target.value)} placeholder="Escribe tu apellido"></input>
   			            </div>
                         </div>
@@ -164,13 +164,15 @@ export const UpdateProfile = () => {
   			            </div>
                         <div className="mb-3 text-start mx-2">
     			            <label htmlFor="exampleInputHeadline" className="form-label">Headline</label>
-    			            <input type="text" className="form-control" id="exampleInputHeadline" aria-describedby="emailHelp"
+    			            <input type="text" className="form-control" id="exampleInputHeadline" aria-describedby="emailHelp" maxLength="100"
 				            value={headline ? headline : ""} onChange={(e) => setHeadline(e.target.value)} placeholder="Escribe tu encabezado de perfil, lo que primero verán las empresas"></input>
-  			            </div>
+                            <div id="emailHelp" className="form-text">Máximo 100 caracteres.</div>
+                        </div>
                         <div className="mb-3 text-start mx-2">
                             <label htmlFor="exampleFormControlTextarea1" className="form-label">Descripción</label>
-                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"
-                            value={description ? description : ""} onChange={(e) => setDescription(e.target.value)} placeholder="Su descripción puede tener hasta 1.000 caracteres."></textarea>
+                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" maxLength="1000"
+                            value={description ? description : ""} onChange={(e) => setDescription(e.target.value)} placeholder="Escribe tu descripción..."></textarea>
+                            <div id="emailHelp" className="form-text">Máximo 1.000 caracteres.</div>
                         </div>
                         <button type="submit" className="btn btn-primary btn-lg">Guardar cambios</button>
                         </form>
@@ -207,24 +209,24 @@ export const UpdateProfile = () => {
                         <div className="container d-flex justify-content-center">
                         <div className="mb-3 text-start col-6 mx-2">
     			            <label htmlFor="exampleInputEmail1" className="form-label">Nombre</label>
-    			            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+    			            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" maxLength="200"
 				            value={name ? name : ""} onChange={(e) => setName(e.target.value)} placeholder="Escribe el nombre de la empresa"></input>
   			            </div>
                         <div className="mb-3 text-start col-6 mx-2">
     			            <label htmlFor="exampleInputLastName" className="form-label">CIF</label>
-    			            <input type="text" className="form-control" id="exampleInputLastName" aria-describedby="emailHelp"
+    			            <input type="text" className="form-control" id="exampleInputLastName" aria-describedby="emailHelp" maxLength="20"
 				            value={cif ? cif : ""} onChange={(e) => setCif(e.target.value)} placeholder="Escribe el CIF/NIF"></input>
   			            </div>
                         </div>
                         <div className="col-6 mb-3 text-start mx-2">
     			            <label htmlFor="exampleInputTel" className="form-label">Teléfono</label>
-    			            <input type="text" className="form-control" id="exampleInputTel" aria-describedby="emailHelp"
+    			            <input type="text" className="form-control" id="exampleInputTel" aria-describedby="emailHelp" 
 				            value={telephone ? telephone : ""} onChange={(e) => setTelephone(e.target.value)} placeholder="Escribe un teléfono"></input>
   			            </div>
                         <div className="container d-flex justify-content-center">
                         <div className="mb-3 text-start col-6 mx-2">
     			            <label htmlFor="exampleInputCountry" className="form-label">País</label>
-    			            <input type="text" className="form-control" id="exampleInputCountry" aria-describedby="emailHelp"
+    			            <input type="text" className="form-control" id="exampleInputCountry" aria-describedby="emailHelp" maxLength="20"
 				            value={country ? country : ""} onChange={(e) => setCountry(e.target.value)} placeholder="Escribe tu país de residencia"></input>
   			            </div>
                         <div className="mb-3 text-start col-6 mx-2">
@@ -245,13 +247,15 @@ export const UpdateProfile = () => {
   			            </div>
                         <div className="mb-3 text-start mx-2">
     			            <label htmlFor="exampleInputHeadline" className="form-label">Headline</label>
-    			            <input type="text" className="form-control" id="exampleInputHeadline" aria-describedby="emailHelp"
+    			            <input type="text" className="form-control" id="exampleInputHeadline" aria-describedby="emailHelp" maxLength="100"
 				            value={headline ? headline : ""} onChange={(e) => setHeadline(e.target.value)} placeholder="Escribe el encabezado de perfil"></input>
-  			            </div>
+                            <div id="emailHelp" className="form-text">Máximo 100 caracteres.</div>
+                        </div>
                         <div className="mb-3 text-start mx-2">
                             <label htmlFor="exampleFormControlTextarea1" className="form-label">Descripción</label>
-                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"
-                            value={description ? description : ""} onChange={(e) => setDescription(e.target.value)} placeholder="Su descripción puede tener hasta 1.000 caracteres."></textarea>
+                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" maxLength="1000"
+                            value={description ? description : ""} onChange={(e) => setDescription(e.target.value)} placeholder="Escribe la descripción de tu empresa..."></textarea>
+                            <div id="emailHelp" className="form-text">Máximo 1.000 caracteres.</div>
                         </div>
                         <button type="submit" className="btn btn-primary btn-lg">Guardar cambios</button>
                         </form>

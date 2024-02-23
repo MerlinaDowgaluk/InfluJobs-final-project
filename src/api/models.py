@@ -129,7 +129,7 @@ class OffersCandidates(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     status_candidate = db.Column(db.Enum('pending', 'accepted', 'refused', name='status_candidate'), nullable=False)
     status_influencer = db.Column(db.Enum('active', 'inactive', name='status_influencer'), nullable=False)
-    cover_letter = db.Column(db.String(500), nullable=False)
+    cover_letter = db.Column(db.String(2000), nullable=False)
     social_network_url = db.Column(db.String(), nullable=False)
     followers = db.Column(db.Integer(), nullable=False)
     id_offer = db.Column(db.Integer, db.ForeignKey('offers.id'))

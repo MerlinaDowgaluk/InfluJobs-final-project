@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ImagenError from "/workspaces/sp50-final-project-g2/src/front/img/ImagenError.png";
+import ImagenError from "/workspaces/InfluJobs-final-project/src/front/img/ImagenError.png";
 import { useNavigate } from "react-router-dom";
 
 export const CuatroCeroCuatro = () => {

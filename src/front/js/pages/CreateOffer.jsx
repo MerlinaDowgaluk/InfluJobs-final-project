@@ -59,8 +59,9 @@ export const CreateOffer = () =>{
                         <div className="container d-flex justify-content-center">
                         <div className="mb-3 text-start col-12 mx-2">
     			            <label htmlFor="exampleInputEmail1" className="form-label">Título</label>
-    			            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+    			            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" maxLength="200"
 				            value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Escribe el título de la oferta"></input>
+                            <div id="emailHelp" className="form-text">Máximo 200 caracteres.</div>
   			            </div>
                         </div>
                         <div className="container d-flex justify-content-center">
@@ -77,7 +78,7 @@ export const CreateOffer = () =>{
                         </div>
                         <div className="col-6 mb-3 text-start mx-2">
     			            <label htmlFor="exampleInputTel" className="form-label">Industria/Área</label>
-    			            <input type="text" className="form-control" id="exampleInputTel" aria-describedby="emailHelp"
+    			            <input type="text" className="form-control" id="exampleInputTel" aria-describedby="emailHelp" maxLength="200"
 				            value={industry} onChange={(e) => setIndustry(e.target.value)} placeholder="Relacionada con la oferta"></input>
   			            </div>
                         <div className="container d-flex justify-content-center">
@@ -88,14 +89,15 @@ export const CreateOffer = () =>{
   			            </div>
                         <div className="mb-3 text-start col-6 mx-2">
     			            <label htmlFor="exampleInputzip" className="form-label">Ubicación</label>
-    			            <input type="text" className="form-control" id="exampleInputzip" aria-describedby="emailHelp"
+    			            <input type="text" className="form-control" id="exampleInputzip" aria-describedby="emailHelp" maxLength="200"
 				            value={location} onChange={(e) => setLocation(e.target.value)} placeholder="País o ciudad de ubicación"></input>
   			            </div>
                         </div>
                         <div className="mb-3 text-start mx-2">
                             <label htmlFor="exampleFormControlTextarea1" className="form-label">Descripción de la oferta</label>
-                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="4"
+                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="4" maxLength="2000"
                             value={post} onChange={(e) => setPost(e.target.value)} placeholder="Escribe la descripción de la oferta..."></textarea>
+                            <div id="emailHelp" className="form-text">Máximo 2.000 caracteres.</div>
                         </div>
                         <button type="submit" className="btn btn-primary btn-lg m-2">Submit</button>
                         </form>

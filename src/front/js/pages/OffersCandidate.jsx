@@ -22,7 +22,19 @@ export const OffersCandidate = () => {
         }
     }
 
-    return (!store.registerCandidates ? <Spinner /> :
+    return (store.registerCandidates.length < 1 ? 
+        <div>
+            <h1 className="text-center mt-5 title-style"> Ofertas Inscritas</h1>
+            <div className="justify-content-center d-flex">
+            <div className="col-8 alert alert-primary m-5 text-center" role="alert">
+                    No tienes candidaturas actualmente
+            </div>
+            </div>
+            <div className="justify-content-end d-flex">
+                <Link to="/profile" className="text-secondary text-end m-2 me-5">Volver a tu perfil</Link>
+            </div>
+        </div>
+        :
         <div>
             <h1 className="text-center mt-5 title-style"> Ofertas Inscritas</h1>
                 {store.registerCandidates.map((item, id) => {

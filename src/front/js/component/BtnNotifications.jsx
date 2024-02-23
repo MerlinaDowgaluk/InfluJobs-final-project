@@ -48,7 +48,7 @@ export const BtnNotifications = () =>{
         <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
             <li className="d-flex m-1"><span className="dropdown-item-text">Candidatos:</span></li>
             {!store.candidatesOffersPending ? (
-                <li><a className="dropdown-item" href="#" style={{color: "black"}}>No tienes candidatos en tus ofertas.</a></li>
+                <li><a className="dropdown-item" href="#">No tienes candidatos en tus ofertas.</a></li>
             ) : (
             store.candidatesOffersAll.map((item, id)=>{
                 if (`${item.status_candidate}` == "pending" && `${item.status_influencer}` == "active"){
