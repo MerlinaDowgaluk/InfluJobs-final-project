@@ -30,6 +30,7 @@ import { Footer } from "./component/Footer.jsx";
 import { Inscripcion } from "./pages/Inscripcion.jsx";
 import { AllOffersCandidates } from "./pages/AllOffersCandidates.jsx";
 import { CuatroCeroCuatro } from "./pages/CuatroCeroCuatro.jsx";
+import { ClosedOffers } from "./pages/ClosedOffers.jsx";
 
 
 // Create your first component
@@ -65,6 +66,7 @@ const Layout = () => {
                         <Route element={<ProfileCompany/>} path="/oneOffer/company/:id_company" />
                         <Route element={<SeeInfluencerProfile />} path="/influencer/:influencer_id/profile"/>
                         <Route element={<SeeInfluencerProfile/>} path="/company/my-offers/:offer_id/influencers" />
+                        <Route element={<ClosedOffers/>} path="/company/closed-offers"/>
                         <Route element={<CuatroCeroCuatro />} path="*"/>
                     </Routes>
                     <Footer />

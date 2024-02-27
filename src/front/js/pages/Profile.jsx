@@ -34,7 +34,7 @@ export const Profile = () => {
     return (
         !store.isLoggedIn ? <Navigate to='/' /> :
         <div>
-            <h1 className="text-center title-style mt-5">Mi Perfil</h1>
+            <h1 className="text-center title-style mt-5">Mi perfil</h1>
             { store.isInfluencer == true ? 
             <div className="text-center">
                 { !store.user || !store.profile ? 
@@ -74,8 +74,10 @@ export const Profile = () => {
                     <Link to="/add-socialnetwork" className="text-secondary text-end">
                         <p className="text-end m-1 me-5" ><i className="fa-solid fa-plus fa-xl"></i></p>
                     </Link>
-                    {!store.socialNetworks ? 
-                    <p>Cargando datos.. </p>
+                    {!store.socialNetworks || store.socialNetworks.length < 1 ? 
+                    <div>
+                        <p>No tienes redes sociales asociadas</p>
+                    </div>
                     :
                     store.socialNetworks.map((item, id)=>{
                         return (
@@ -147,10 +149,13 @@ export const Profile = () => {
                             <p className="text-end m-2 me-5"><i className="fa-solid fa-plus fa-xl"></i></p>
                         </Link>
                     </div>
-                    {!store.offersCompany ? 
-                    <Spinner />
+                    {!store.offersCompany || store.offersCompany.length < 1 ? 
+                    <div>
+                        <p>No tienes ofertas activas actualmente</p>
+                    </div>
                     : 
                     store.offersCompany.map((item, id) =>{
+                        if (item.status == "opened")
                         return(
                         <div key={id} className="m-2 text-start d-flex justify-content-between" style={{border: "solid", borderColor: "#FFC66B", borderRadius: "15px", backgroundColor: "#FFFEF8"}}>
                             <div className="ms-4 mt-2 mb-2">

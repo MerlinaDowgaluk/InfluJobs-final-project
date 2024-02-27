@@ -3,6 +3,7 @@ import { Context } from "../store/appContext.js";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { NavbarFiltros } from "../component/NavbarFiltros.jsx";
 import {Spinner} from "../component/Spinner.jsx"
+import { Placeholder } from "../component/Placeholder.jsx";
 
 export const OffersPublic = () => {
     const { store, actions } = useContext(Context);
@@ -34,14 +35,7 @@ export const OffersPublic = () => {
                     No hay ofertas activas actualmente.
             </div>
             </div>
-            <div className="justify-content-center d-flex">
-            <div className="card col-8" style={{border: "solid", borderColor: "#FFC66B", borderRadius: "15px", backgroundColor: "#FFFEF8"}}>
-            <span class="placeholder-wave placeholder col-3 m-1"></span>
-            <p class="placeholder-wave text-center mt-1">
-                <span class="placeholder col-7"></span>
-            </p>
-            </div>
-            </div>
+            <Placeholder />
             </div>
             :
             results.map((item, id) => (

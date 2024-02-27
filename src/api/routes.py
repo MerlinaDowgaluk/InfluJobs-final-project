@@ -381,6 +381,28 @@ def company_offer(id_user_company):
         response_body['results'] = results
         return response_body, 200
 
+@api.route('/offers-data/company/closed', methods=['GET'])  
+@jwt_required()
+def company_offer_closed():
+    current_user = get_jwt_identity()
+    response_body = {}
+    results = {}
+    if current_user[0]['is_influencer']:
+        response_body['message'] = "Usuario no autorizado"
+        return response_body, 404
+    offers_closed = db.session.execute(db.select(Offers).where(Offers.id_company == current_user[1]['id'], Offers.status != "opened")).scalars()
+    if not offers_closed:
+        response_body['message'] = "No tienes oferta cerradas o canceladas"
+        return response_body, 404
+    list_offers = []
+    for row in offers_closed:
+        list_offers.append(row.serialize())
+    results['offers_closed'] = list_offers
+    response_body['message'] = "Listado de ofertas cerradas o canceladas"
+    response_body['results'] = results
+    return response_body, 200
+
+
 
 # Endpoint para aplicar una oferta como influencer.
 @api.route('/offer-candidates', methods=['POST'])

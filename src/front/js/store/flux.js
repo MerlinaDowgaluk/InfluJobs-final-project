@@ -25,8 +25,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			userExist: false,
 			userNoExist: false,
 			oneOfferCandidate: null,
-			profileCompany: {}
-
+			profileCompany: {},
+			closedOffers: null
 		},
 		actions: {
 			getProfileCompany: async(id_company) => {
@@ -108,7 +108,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const data = await response.json();
 				setStore ({offersPublic: data.results.offers})
 			},
-			// No la estoy utilizando
 			getOneOffer: async (id_offer) => {
 				const url = process.env.BACKEND_URL+ "/api/offers/" + id_offer
 				const options = {
@@ -199,7 +198,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({seeSocialNetworkForCompany: null});
 				setStore({registerCandidatesUpdates: null});
 				setStore({candidatesOffersAll: null});
-				setStore({candidatesOffersPending: null})
+				setStore({candidatesOffersPending: null});
+				setStore({closedOffers: null})
 			},
 			isLogged: () => {
 				if (localStorage.getItem("token")){
@@ -420,6 +420,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 				const data = await response.json()
 				console.log(data)
+			},
+			openOffer: async(offer_id) =>{
+				const url = process.env.BACKEND_URL + `/api/company/${offer_id}`
+				const options = {
+					method: 'PUT',
+					body: JSON.stringify({"status": "opened" }),
+					headers:{
+						"Content-Type": "application/json",
+                		"Authorization" : "Bearer " + localStorage.getItem("token")
+					}
+				};
+				const response = await fetch(url, options)
+				if(!response.ok){
+					console.log('Error de put', response.status, response.statusText)
+				};
+				const data = await response.json()
+				console.log(data)
+			},
+			getClosedOffers: async() =>{
+				const url = process.env.BACKEND_URL + "/api/offers-data/company/closed"
+				const options = {
+					method: 'GET',
+					headers:{
+						"Content-Type": "application/json",
+                		"Authorization" : "Bearer " + localStorage.getItem("token")
+					}
+				};
+				const response = await fetch(url, options)
+				if(!response.ok){
+					console.log(response.status, response.statusText)
+				};
+				const data = await response.json()
+				console.log(data)
+				setStore({closedOffers: data.results.offers_closed})
 			},
 			getInfluencerProfile: async(id_influencer) =>{
 				const url = process.env.BACKEND_URL + `/api/influencer/profile/${id_influencer}`

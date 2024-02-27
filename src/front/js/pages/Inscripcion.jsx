@@ -65,10 +65,11 @@ export const Inscripcion = () => {
                               </div>
                             </div>
                             <div className="mb-3 text-start mx-2">
-                                <label htmlFor="exampleFormControlTextarea1" className="form-label">Descripción</label>
-                                <textarea className="form-control" id="exampleFormControlTextarea1" rows="2"
-                                value={coverLetter} onChange={(e) => setCoverLetter(e.target.value)} placeholder="Resume tus aptitudes"></textarea>
-                                    </div>
+                                <label htmlFor="exampleFormControlTextarea1" className="form-label">Carta de presentación</label>
+                                <textarea className="form-control" id="exampleFormControlTextarea1" rows="4" maxLength="2000"
+                                value={coverLetter} onChange={(e) => setCoverLetter(e.target.value)} placeholder="Envía a la empresa una breve presentación..."></textarea>
+                                <div id="emailHelp" className="form-text">Máximo 2.000 caracteres.</div>
+                            </div>
                             <button  type="submit" className="btn btn-primary btn-lg mx-2 my-2">Registrarte</button>
                         </form>
                         </div>

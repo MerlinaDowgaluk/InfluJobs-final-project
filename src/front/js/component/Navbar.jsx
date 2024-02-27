@@ -54,9 +54,14 @@ export const Navbar = () => {
                                             <Link to="/offer-candidates" className="dropdown-item">Mis Ofertas influencer</Link>
                                         </li>
                                         :
+                                        <>
                                         <li>
                                             <Link to="/company/my-offers" className="dropdown-item">Mis ofertas publicadas</Link>
                                         </li>
+                                        <li>
+                                            <Link to="/company/closed-offers" className="dropdown-item">Historial ofertas</Link>
+                                        </li>
+                                        </>
                                     }
                                     <hr className="dropdown-divider" />
                                     <li>
